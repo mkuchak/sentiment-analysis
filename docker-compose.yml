@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  api:
+    container_name: sentiment-analysis-api
+    build:
+      context: ./api
+    restart: always
+    environment:
+      - MODEL_ID=10rThD6G29uwQelsIsX_QqlYBFUZldmxB
+    ports:
+      - "8000:8000"
+  web:
+    container_name: sentiment-analysis-web
+    build:
+      context: ./web
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web:/home/node/web
+      - /home/node/web/node_modules
+      - /home/node/web/.next
+    restart: always
+    environment:
+      - NEXT_PUBLIC_API_ENDPOINT=http://localhost:8000
+    depends_on:
+      - "api"

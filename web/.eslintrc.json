@@ -1,0 +1,19 @@
+{
+  "plugins": ["tailwindcss", "simple-import-sort"],
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
+  "rules": {
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error",
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "semi": ["error", "never"],
+    "@typescript-eslint/semi": "off",
+    "import/no-anonymous-default-export": "off",
+    "tailwindcss/no-custom-classname": "off"
+  }
+}
