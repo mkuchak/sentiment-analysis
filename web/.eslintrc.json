@@ -14,6 +14,11 @@
     "semi": ["error", "never"],
     "@typescript-eslint/semi": "off",
     "import/no-anonymous-default-export": "off",
-    "tailwindcss/no-custom-classname": "off"
+    "tailwindcss/classnames-order": [2, {
+      "callees": ["classNames"]
+    }],
+    "tailwindcss/no-arbitrary-value": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/no-contradicting-classname": "error"
   }
 }
