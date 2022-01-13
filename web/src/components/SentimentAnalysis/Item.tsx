@@ -4,6 +4,7 @@ import { isMobile } from 'react-device-detect'
 import ReactTooltip from 'react-tooltip'
 
 import { useAnalysis } from '../../hooks/useAnalysis'
+import { classNames } from '../../utils/classNames'
 
 interface AnalysisProps {
   id: string;
@@ -44,8 +45,13 @@ export function Item({ id, analysis }: AnalysisProps) {
   const handleMouseLeave = () => setIsHovering(false)
 
   return (
-    <li className="p-4 pr-4 sm:pr-12">
-      <span className="flex absolute justify-center items-center pt-0.5 -mt-5 -ml-12 w-16 h-16 rounded-full border-8 border-slate-900 bg-slate-800 text-slate-600">
+    <li className="p-4 sm:pr-12">
+      <span
+        className={classNames(
+          'flex absolute justify-center items-center pt-0.5 -mt-5 -ml-12 w-16 h-16',
+          'text-slate-600 bg-slate-800 rounded-full border-8 border-slate-900'
+        )}
+      >
         <Image
           src={`/${sentiment}.png`}
           alt={sentiment}
@@ -53,7 +59,7 @@ export function Item({ id, analysis }: AnalysisProps) {
           height={34}
         />
       </span>
-      <div className="flex flex-col ml-5 sm:ml-8 space-y-4 w-auto">
+      <div className="flex flex-col ml-5 space-y-4 w-auto sm:ml-8">
         <div className="pl-3 text-slate-300">
           Sentimento{' '}
           <span className="font-semibold">
@@ -72,11 +78,19 @@ export function Item({ id, analysis }: AnalysisProps) {
         <div
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="flex flex-col p-4 space-y-2 rounded-2xl border shadow-md border-slate-600 text-slate-400"
+          className={classNames(
+            'flex flex-col p-4 space-y-2 rounded-2xl border shadow-md',
+            'text-slate-400 border-slate-600'
+          )}
         >
           <div className="flex justify-between">
             <div>{text}</div>
-            <div className="-m-1.5 ml-2 hover:brightness-200 duration-300 transform min-w-[1.625rem] h-[1.625rem]">
+            <div
+              className={classNames(
+                '-m-1.5 ml-2 hover:brightness-200 duration-300 transform',
+                'min-w-[1.625rem] h-[1.625rem]'
+              )}
+            >
               <button
                 className={isHovering || isMobile ? 'block' : 'hidden'}
                 onClick={() => removeAnalysis(id)}
@@ -93,7 +107,11 @@ export function Item({ id, analysis }: AnalysisProps) {
                   key={key}
                   data-tip
                   data-for={`${key}-${id}`}
-                  className="flex items-center py-1 pr-2 pl-1.5 mt-1 text-sm rounded-full duration-300 transform select-none text-slate-400 hover:bg-slate-700 bg-slate-800"
+                  className={classNames(
+                    'flex items-center py-1 pr-2 pl-1.5 mt-1 text-sm rounded-full',
+                    'text-slate-400 duration-300 select-none transform',
+                    'bg-slate-800 hover:bg-slate-700'
+                  )}
                 >
                   <Image src={`/${key}.png`} alt={key} width={16} height={16} />
                   <span className="ml-1 font-semibold">
@@ -103,7 +121,10 @@ export function Item({ id, analysis }: AnalysisProps) {
                     id={`${key}-${id}`}
                     place="top"
                     effect="solid"
-                    className="whitespace-nowrap !px-3 !py-2 !rounded-lg !bg-slate-800 !text-slate-100"
+                    className={classNames(
+                      '!py-2 !px-3 whitespace-nowrap !rounded-lg',
+                      '!text-slate-100 !bg-slate-800'
+                    )}
                   >
                     {(value * 100).toFixed(2).replace('.', ',')}%{' '}
                     {key === 'positive'
