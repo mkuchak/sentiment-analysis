@@ -55,6 +55,15 @@ export function Item({ id, analysis }: AnalysisProps) {
         <Image
           src={`/${sentiment}.png`}
           alt={sentiment}
+          title={
+            sentiment === 'positive'
+              ? 'Positivo'
+              : sentiment === 'negative'
+              ? 'Negativo'
+              : sentiment === 'neutral'
+              ? 'Neutro'
+              : ''
+          }
           width={34}
           height={34}
         />

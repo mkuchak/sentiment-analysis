@@ -50,7 +50,13 @@ export function InsertItem() {
           'text-slate-600 bg-slate-800 border-slate-900'
         )}
       >
-        <Image src="/predict.png" alt="Insert" width={34} height={34} />
+        <Image
+          src="/predict.png"
+          alt="Insert"
+          title="Predição"
+          width={34}
+          height={34}
+        />
       </span>
       <div className="flex items-center space-x-2">
         <input
