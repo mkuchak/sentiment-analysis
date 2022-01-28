@@ -30,6 +30,18 @@ const AnalysisContext = createContext<AnalysisContext>({} as AnalysisContext)
 export function AnalysisProvider({ children }: AnalysisProviderProps) {
   const [analysis, setAnalysis] = useState<Analysis[]>([])
 
+  useEffect(() => {
+    const analysis = localStorage.getItem('analysis')
+
+    if (analysis) {
+      setAnalysis(JSON.parse(analysis))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('analysis', JSON.stringify(analysis))
+  }, [analysis])
+
   const addAnalysis = async (text: string) => {
     let response
 
@@ -47,15 +59,18 @@ export function AnalysisProvider({ children }: AnalysisProviderProps) {
       return
     }
 
+    setAnalysis([
       {
         text,
         date: new Date().toISOString(),
         ...response.data,
       },
       ...analysis,
+    ])
   }
 
   const removeAnalysis = async (id: string) => {
+    setAnalysis(analysis.filter((_analysis, index) => index !== parseInt(id)))
   }
 
   return (
