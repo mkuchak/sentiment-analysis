@@ -54,6 +54,9 @@ export function AnalysisProvider({ children }: AnalysisProviderProps) {
         !process.env.NEXT_PUBLIC_API_ENDPOINT ||
         process.env.NEXT_PUBLIC_API_ENDPOINT === 'http://localhost:8000'
       ) {
+        alert(
+          'Aguarde o contêiner da API estar pronto, pode levar alguns poucos minutos até que seja feito o download do modelo treinado. Para checar o andamento use `docker logs -f sentiment-analysis-server`.'
+        )
       }
 
       return
