@@ -1,6 +1,6 @@
 FROM node:17
-RUN mkdir -p /home/node/web/node_modules && chown -R node:node /home/node/web
-WORKDIR /home/node/web
+RUN mkdir -p /home/node/client/node_modules && chown -R node:node /home/node/client
+WORKDIR /home/node/client
 
 COPY package*.json ./
 RUN npm install

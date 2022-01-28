@@ -1,4 +1,3 @@
-import { useAnalysis } from '../../hooks/useAnalysis'
 import { InsertItem } from './InsertItem'
 import { Item } from './Item'
 import { Timeline } from './Timeline'

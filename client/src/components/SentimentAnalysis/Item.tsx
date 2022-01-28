@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect'
-import ReactTooltip from 'react-tooltip'
 
-import { useAnalysis } from '../../hooks/useAnalysis'
 import { classNames } from '../../utils/classNames'
 
 interface AnalysisProps {
@@ -132,7 +130,6 @@ export function Item({ id, analysis }: AnalysisProps) {
                     effect="solid"
                     className={classNames(
                       '!py-2 !px-3 whitespace-nowrap !rounded-lg',
-                      '!text-slate-100 !bg-slate-800'
                     )}
                   >
                     {(value * 100).toFixed(2).replace('.', ',')}%{' '}

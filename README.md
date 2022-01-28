@@ -4,7 +4,7 @@ This is a [simple, but complete, application](https://sentiment.kuch.dev) with b
 
 [BERT](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html) (Bidirectional Encoder Representations from Transformers) was used to create this model, transferring the learning through a dataset [extracted from the Play Store](https://github.com/JoMingyu/google-play-scraper). The training was carried out in the [Colaboratory](https://colab.research.google.com/) and the files generated are at `/ai` folder.
 
-The model was put into production from an back-end API built using FastAPI and Uvicorn at `/api`. The front-end is a React application built with the Context API/Hooks for state management and the generated data is saved in localstorage, which can be manipulated through the user interface; it's at `/web` folder.
+The model was put into production from an back-end API built using FastAPI and Uvicorn at `/server` folder. The front-end is a React/Next.js application built with the Context API for state management and the generated data is saved in local storage, which can be manipulated through the user interface and is located at `/client` folder.
 
 <div align="center">
 

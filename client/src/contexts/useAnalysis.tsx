@@ -42,39 +42,21 @@ export function AnalysisProvider({ children }: AnalysisProviderProps) {
         !process.env.NEXT_PUBLIC_API_ENDPOINT ||
         process.env.NEXT_PUBLIC_API_ENDPOINT === 'http://localhost:8000'
       ) {
-        alert('Aguarde o contêiner da API estar pronto')
       }
-      
+
       return
     }
 
-    const data = [
       {
         text,
         date: new Date().toISOString(),
         ...response.data,
       },
       ...analysis,
-    ]
-
-    setAnalysis(data)
-    localStorage.setItem('analysis', JSON.stringify(data))
   }
 
   const removeAnalysis = async (id: string) => {
-    const data = analysis.filter((_analysis, index) => index !== parseInt(id))
-
-    setAnalysis(data)
-    localStorage.setItem('analysis', JSON.stringify(data))
   }
-
-  useEffect(() => {
-    const analysis = localStorage.getItem('analysis')
-
-    if (analysis) {
-      setAnalysis(JSON.parse(analysis))
-    }
-  }, [])
 
   return (
     <AnalysisContext.Provider value={{ analysis, addAnalysis, removeAnalysis }}>
@@ -83,8 +65,3 @@ export function AnalysisProvider({ children }: AnalysisProviderProps) {
   )
 }
 
-export function useAnalysis() {
-  const context = useContext(AnalysisContext)
-
-  return context
-}
