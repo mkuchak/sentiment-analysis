@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 
+import { useAnalysis } from '../../contexts/AnalysisContext'
 import { classNames } from '../../utils/classNames'
 
 export function InsertItem() {

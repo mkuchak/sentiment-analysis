@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import { SentimentAnalysis } from '../components/SentimentAnalysis'
+import { AnalysisProvider } from '../contexts/AnalysisContext'
 
 export default function Home() {
   return (

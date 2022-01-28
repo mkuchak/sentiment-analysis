@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 
+import { useAnalysis } from '../../contexts/AnalysisContext'
 import { classNames } from '../../utils/classNames'
 
 const ReactTooltip = dynamic(() => import('react-tooltip'), {

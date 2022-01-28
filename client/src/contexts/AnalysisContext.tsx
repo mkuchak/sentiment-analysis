@@ -83,3 +83,4 @@ export function AnalysisProvider({ children }: AnalysisProviderProps) {
   )
 }
 
+export const useAnalysis = () => useContext(AnalysisContext)
