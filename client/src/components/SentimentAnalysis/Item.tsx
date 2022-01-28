@@ -1,8 +1,13 @@
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 
 import { classNames } from '../../utils/classNames'
+
+const ReactTooltip = dynamic(() => import('react-tooltip'), {
+  ssr: false,
+})
 
 interface AnalysisProps {
   id: string;
@@ -130,6 +135,7 @@ export function Item({ id, analysis }: AnalysisProps) {
                     effect="solid"
                     className={classNames(
                       '!py-2 !px-3 whitespace-nowrap !rounded-lg',
+                      '!text-slate-100 !bg-slate-800 after:!border-t-slate-800'
                     )}
                   >
                     {(value * 100).toFixed(2).replace('.', ',')}%{' '}
